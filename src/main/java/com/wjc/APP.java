@@ -31,11 +31,9 @@ public class APP extends SignInView {
         signUpButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                try
-                {
+                try {
                     userSignUp();
-                }catch (Exception exception)
-                {
+                } catch (Exception exception) {
                     exception.printStackTrace();
                     showErrorMessage("注册失败");
                 }
@@ -58,13 +56,12 @@ public class APP extends SignInView {
     }
 
     private void userSignUp() {
-        String userName = "";
+        String userName = "defaultUser";
         int id = Integer.parseInt(idField.getText().trim());
         String password = String.valueOf(passwordField.getPassword());
-        if(userService.addNewUser(userName, password, id))
-        {
+        if (userService.addNewUser(userName, password, id)) {
             frame.dispose();
-            new ClientAPP();
+            new ClientAPP(userName);
         }
     }
 
@@ -73,13 +70,10 @@ public class APP extends SignInView {
 
         String password = String.valueOf(passwordField.getPassword());
 
-        if(userService.findPasswordByID(id).equals(password))
-        {
+        if (userService.findPasswordByID(id).equals(password)) {
             frame.dispose();
-            new ClientAPP();
-        }
-        else
-        {
+            new ClientAPP(userService.findUserNameByID(id));
+        } else {
             showErrorMessage("登陆失败！");
         }
     }
@@ -91,10 +85,7 @@ public class APP extends SignInView {
 
     public static void main(String[] args) {
 
-//
-//        System.out.println(userService.findPasswordByID(1));
-//
-//        System.out.println(userService.addNewUser("wwww", "www", 6));
+
         new APP();
     }
 }

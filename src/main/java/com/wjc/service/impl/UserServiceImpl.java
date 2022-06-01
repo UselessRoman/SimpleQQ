@@ -21,5 +21,10 @@ public class UserServiceImpl implements UserService {
         return userDao.addNewUser(username, password, id);
     }
 
+    @Override
+    public String findUserNameByID(int id) {
+        return userDao.findUserNameByID(id);
+    }
+
 
 }

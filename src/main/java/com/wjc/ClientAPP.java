@@ -2,7 +2,6 @@ package com.wjc;
 
 import com.wjc.domain.User;
 import com.wjc.view.ClientView;
-import com.wjc.view.SignInView;
 
 import javax.swing.*;
 import javax.swing.event.ListSelectionEvent;
@@ -37,7 +36,9 @@ public class ClientAPP extends ClientView {
     private boolean isConnected;   //判断是否连接到服务端
 
     //构造函数
-    public ClientAPP() {
+    public ClientAPP(String username) {
+
+        nameTextField.setText(username);
 
         // 写消息的文本框中按回车键时事件
         messageTextField.addActionListener(new ActionListener() {

@@ -17,4 +17,9 @@ public interface UserDao {
 
     @Insert("insert into user(username, password, id) values(#{username},#{password},#{id}) ")
     boolean addNewUser(@Param("username") String username, @Param("password") String password, @Param("id") int id);
+
+
+    @Select("select username from user" +
+            " where  id=#{id}")
+    String findUserNameByID(int id);
 }

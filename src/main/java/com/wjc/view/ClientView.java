@@ -42,8 +42,8 @@ public class ClientView
         frame.setLayout(new BorderLayout());
 
         //设置面板初始参数
-        ipTextField = new JTextField("192.168.1.154");
-        portTextField = new JTextField("6666");
+        ipTextField = new JTextField("");
+        portTextField = new JTextField("");
         nameTextField = new JTextField("   ");
         connectButton = new JButton("连接");
         disconnectButton = new JButton("断开");
