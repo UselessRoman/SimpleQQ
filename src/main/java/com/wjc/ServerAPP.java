@@ -54,6 +54,7 @@ public class ServerAPP extends ServerView {
         //启动按钮绑定点击事件
         startButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
+
                 if (!isStart) {
                     startServer();
                 }
@@ -365,6 +366,6 @@ public class ServerAPP extends ServerView {
     }
 
     public static void main(String[] args) {
-        new ServerView();
+        new ServerAPP();
     }
 }
